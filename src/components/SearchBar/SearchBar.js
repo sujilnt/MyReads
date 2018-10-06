@@ -1,7 +1,45 @@
-import React from "react";
+import React,{Component} from "react";
 import {Link} from "react-router-dom";
-const SearchBar = ()=>{
- return(
+//import Book from "../Book/Book.js";
+class SearchBar extends Component{
+ 	state={
+    	loading:true,
+        searchVal:" ",
+        query: {}
+  	}
+
+  	seachData=(e)=>{
+      const searchValue=e.target.value || " ";
+      e.preventDefault();
+      const {search} =this.props.bookApi;
+      search(searchValue).then((query)=>{
+      this.setState(()=>({
+         loading:false,
+         searchVal: searchValue,
+         query  
+      }))
+  });
+      
+};
+renderBookComp=(bookNames)=>{
+  let bookNamesArr=[];
+  Object.keys(bookNames).forEach((name,index)=>{
+    bookNamesArr.push(<li key={index}>
+                                 {bookNames[name].title}
+						</li>);
+  });
+   return bookNamesArr;
+};
+
+
+renderSearchData=()=>{
+  return(<div>Enter the Keywords based on SearchItems.md..</div>);
+}
+
+   render(){
+     const {query}=this.state;
+     console.log(query);
+   		return(
      <div className="search-books">
             <div className="search-books-bar">
               <Link className="close-search" to="/">Close</Link>
@@ -14,14 +52,16 @@ const SearchBar = ()=>{
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-                <input type="text" placeholder="Search by title or author"/>
+                <input type="text" placeholder="Search by title or author" onChange={this.seachData}/>
 
               </div>
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">{(this.state.query.length)?this.renderBookComp(query):
+									(this.state.loading ? " ": this.renderSearchData() ) }</ol>
             </div>
           </div>
- );
+ 		);
+   }
 }
 export default SearchBar;
