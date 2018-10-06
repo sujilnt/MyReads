@@ -25,7 +25,7 @@ renderBookComp=(bookNames)=>{
   let bookNamesArr=[];
   Object.keys(bookNames).forEach((name,index)=>{
     let BookObj=bookNames[name];
-    let authors=BookObj.authors ?BookObj.authors.join(', '):["Unknown"];
+    let authors=BookObj.authors ? BookObj.authors.join(','):["Unknown"];
     bookNamesArr.push(<Book 
                      		 key={index}
                              bookAuthor={authors}
@@ -62,8 +62,12 @@ renderSearchData=()=>{
               </div>
             </div>
             <div className="search-books-results">
-              <ol className="books-grid">{(this.state.query.length)?this.renderBookComp(query):
-									(this.state.loading ? " ": this.renderSearchData() ) }</ol>
+              <ol className="books-grid">
+				{(this.state.query.length)?
+					this.renderBookComp(query):
+					(this.state.loading ? " ": this.renderSearchData()
+                    )}
+				</ol>
             </div>
           </div>
  		);

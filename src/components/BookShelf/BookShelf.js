@@ -1,17 +1,36 @@
 import React,{Component} from "react";
+import Book from "../Book/Book";
 class BookShelf extends Component{
    state={
-    loading : true
+    loading : true, 
    };
+    renderBookshelfContents = (bookNames)=>{
+      let renderItems=[];
+      bookNames.forEach((row,index)=>{
+      	let authors=row.authors ? row.authors.join(','):["Unknown"];
+         renderItems.push(
+         <li key={index} >
+           <Book 
+            	bookAuthor={authors}
+				bookTitle={row.title}
+				bookCover={row.imageLinks.thumbnail}
+           />
+         </li>
+         );
+      });
+    return renderItems;
+    }
     render(){
-    	renturn(
+        const {booksNameObj}=this.props;
+       console.log(booksNameObj);
+    	return(
     		 <div className="bookshelf">
-                  <h2 className="bookshelf-title">Currently Reading</h2>
+                  <h2 className="bookshelf-title">{this.props.selfName}</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      <li>
-                       Book Component
-                      </li>
+                    
+      					{this.renderBookshelfContents(booksNameObj)}
+                   
                     </ol>
                   </div>
                 </div>    	
