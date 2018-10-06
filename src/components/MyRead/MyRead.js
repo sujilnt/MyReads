@@ -5,12 +5,6 @@ class MyRead extends Component{
   state={
     loading : true,
     bookNames: " ",
-    shelfBook:{
-       currentlyReading: "",
-       wantToRead: "",
-       read: "",
-      
-    }
   };
   componentDidMount=()=>{
    		this.loadBooks()
@@ -26,8 +20,11 @@ class MyRead extends Component{
    }
    updateBooks=(bookidObj,shelf)=>{
       let {update}=this.props.bookApi;
-     update(bookidObj,shelf).then();
-     this.loadBooks();
+     update(bookidObj,shelf).then((data)=>{
+       console.log(data);
+        this.loadBooks();
+     });
+     
      
    };
  

@@ -7,6 +7,13 @@ class SearchBar extends Component{
         searchVal:" ",
         query: {}
   	}
+   updateBooks=(bookidObj,shelf)=>{
+      let {update}=this.props.bookApi;
+     update(bookidObj,shelf).then((contacts)=>{
+      console.log("c=>",contacts);
+     });
+     
+   };
 
   	seachData=(e)=>{
       const searchValue=e.target.value || " ";
@@ -31,6 +38,8 @@ renderBookComp=(bookNames)=>{
                              bookAuthor={authors}
 						     bookTitle={BookObj.title}
 						     bookCover={BookObj.imageLinks.thumbnail}
+							 updateFunc={this.updateBooks}
+							 BookId={BookObj.id} 
 						/>);
   });
    return bookNamesArr;
