@@ -1,5 +1,4 @@
 import React,{Component} from "react";
-import Book from "../Book/Book.js";
 import BookShelf from "../BookShelf/BookShelf.js";
 class MyRead extends Component{
   
@@ -14,15 +13,24 @@ class MyRead extends Component{
     }
   };
   componentDidMount=()=>{
-   		let {getAll}=this.props.bookApi;
+   		this.loadBooks()
+ 	}
+  loadBooks=()=>{
+     let {getAll}=this.props.bookApi;
   		getAll().then((bookNames)=>{
      		this.setState(()=>({
         		bookNames,
                 loading:false
      		}));
   		});
- 	}
-
+   }
+   updateBooks=(bookidObj,shelf)=>{
+      let {update}=this.props.bookApi;
+     update(bookidObj,shelf).then();
+     this.loadBooks();
+     
+   };
+ 
  shelfData=(shelfName)=>{
    let  filteredBookdata = this.state.bookNames;
     filteredBookdata=filteredBookdata.filter((row)=>{
@@ -32,7 +40,6 @@ class MyRead extends Component{
    return filteredBookdata;
   }  
  render(){
-   //console.log(ShelfData);
     return(
      <div className="list-books">
             <div className="list-books-title">
@@ -44,14 +51,18 @@ class MyRead extends Component{
                <BookShelf 
       					selfName="Currently Reading"
       					booksNameObj={this.shelfData("currentlyReading")}
+						updateFunc={this.updateBooks}
+						
       			/>
    				<BookShelf 
       					selfName="Want To Read"
       					booksNameObj={this.shelfData("wantToRead")}
+						updateFunc={this.updateBooks}
       			/>
 				<BookShelf 
       					selfName="Read"
       					booksNameObj={this.shelfData("read")}
+						updateFunc={this.updateBooks}
       			/>
    				
             </div>): ""

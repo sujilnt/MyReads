@@ -9,11 +9,13 @@ class BookShelf extends Component{
       bookNames.forEach((row,index)=>{
       	let authors=row.authors ? row.authors.join(','):["Unknown"];
          renderItems.push(
-         <li key={index} >
+         <li key={row.id} >
            <Book 
             	bookAuthor={authors}
 				bookTitle={row.title}
 				bookCover={row.imageLinks.thumbnail}
+				updateFunc={this.props.updateFunc}
+				id={row.id}
            />
          </li>
          );

@@ -25,7 +25,7 @@ renderBookComp=(bookNames)=>{
   let bookNamesArr=[];
   Object.keys(bookNames).forEach((name,index)=>{
     let BookObj=bookNames[name];
-    let authors=BookObj.authors ? BookObj.authors.join(','):["Unknown"];
+    let authors=BookObj.authors ? BookObj.authors.join(','):["Unknown"] ;
     bookNamesArr.push(<Book 
                      		 key={index}
                              bookAuthor={authors}

@@ -1,7 +1,12 @@
 import React from "react";
 const BookSelectComp = (props) => {
+  const {bookupdateFunc,BookId}=props;
    const selectChange = (e)=>{
-       console.log(e.target.value);    
+       let BookObj={
+         id: BookId
+       };
+       const selectValue = e.target.value;
+       bookupdateFunc(BookObj,selectValue);
     }
    
 	return(
