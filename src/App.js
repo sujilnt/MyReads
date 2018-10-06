@@ -24,10 +24,9 @@ class BooksApp extends React.Component {
     				<MyRead bookApi={BooksAPI} />
 					<div className="open-search">
               		<Link to='/search'>Add a book</Link>
-					</div>
+				</div>
             	</div>
 )} />
-             
            <Route exact path="/search" render={()=>(<SearchBar bookApi={BooksAPI} />)} />
       </div>
 )

@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import {Link} from "react-router-dom";
-//import Book from "../Book/Book.js";
+import Book from "../Book/Book.js";
 class SearchBar extends Component{
  	state={
     	loading:true,
@@ -24,9 +24,14 @@ class SearchBar extends Component{
 renderBookComp=(bookNames)=>{
   let bookNamesArr=[];
   Object.keys(bookNames).forEach((name,index)=>{
-    bookNamesArr.push(<li key={index}>
-                                 {bookNames[name].title}
-						</li>);
+    let BookObj=bookNames[name];
+    let authors=BookObj.authors ?BookObj.authors.join(', '):["Unknown"];
+    bookNamesArr.push(<Book 
+                     		 key={index}
+                             bookAuthor={authors}
+						     bookTitle={BookObj.title}
+						     bookCover={BookObj.imageLinks.thumbnail}
+						/>);
   });
    return bookNamesArr;
 };
