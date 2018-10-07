@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 class MyRead extends Component{
   /*
-   MyRead consist of Collection of BookShelf compnents
+   MyRead Component -> It consist of Collection of BookShelf compnents.
+   Here there are 3 BookShelf Compoenents
   */
   state={
     loading : true,
