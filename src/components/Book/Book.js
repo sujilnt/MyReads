@@ -1,7 +1,7 @@
 import React from "react";
 import BookSelectComp from "../BookSelectComp/BookSelectComp.js";
 const Book=(props)=>{
-    const {updateFunc,bookCover,id}=props;
+    const {updateFunc,bookCover,id,bookTitle,bookAuthor}=props;
     return(
         <div className="book">
              <div className="book-top">
@@ -11,8 +11,8 @@ const Book=(props)=>{
 					    BookId={id}
                     />
                 </div>
-             <div className="book-title">{props.bookTitle}</div>
-             <div className="book-authors">{props.bookAuthor}</div>
+             <div className="book-title">{bookTitle}</div>
+             <div className="book-authors">{bookAuthor}</div>
      </div>
  );
 };
