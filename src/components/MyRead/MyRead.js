@@ -13,9 +13,9 @@ class MyRead extends Component{
   componentDidMount=()=>{
    		this.loadBooks()
  	};
- /*
- loadBooks function => its loads the data from the BookApi
- */
+
+ // loadBooks function => its loads the data from the BookApi
+ 
   loadBooks=()=>{
      let {getAll}=this.props.bookApi;
   		getAll().then((bookNames)=>{
@@ -25,9 +25,9 @@ class MyRead extends Component{
      		}));
   		});
    };
-/*
- 	updateBooks function => The function that is used to update books based on BooksApi.
- */
+
+   // updateBooks function => The function that is used to update books based on BooksApi.
+
    updateBooks=(bookidObj,shelf)=>{
       let {update}=this.props.bookApi;
      update(bookidObj,shelf).then((data)=>{
@@ -36,7 +36,7 @@ class MyRead extends Component{
      });
    };
  /*
- 	shelfData function => The function that is used to filter books based on selfnames.
+    shelfData function => The function that is used to filter books based on selfnames.
     Ex: shelfData("read") 
  */
  shelfData=(shelfName)=>{
