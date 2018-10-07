@@ -8,7 +8,7 @@ class MyRead extends Component{
   };
   componentDidMount=()=>{
    		this.loadBooks()
- 	}
+ 	};
   loadBooks=()=>{
      let {getAll}=this.props.bookApi;
   		getAll().then((bookNames)=>{
@@ -17,15 +17,13 @@ class MyRead extends Component{
                 loading:false
      		}));
   		});
-   }
+   };
    updateBooks=(bookidObj,shelf)=>{
       let {update}=this.props.bookApi;
      update(bookidObj,shelf).then((data)=>{
        console.log(data);
         this.loadBooks();
      });
-     
-     
    };
  
  shelfData=(shelfName)=>{
@@ -35,7 +33,7 @@ class MyRead extends Component{
       return row.shelf===shelfName;
     });
    return filteredBookdata;
-  }  
+  };
  render(){
     return(
      <div className="list-books">
@@ -61,7 +59,6 @@ class MyRead extends Component{
       					booksNameObj={this.shelfData("read")}
 						updateFunc={this.updateBooks}
       			/>
-   				
             </div>): ""
  			}
            

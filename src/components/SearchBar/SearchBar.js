@@ -39,7 +39,7 @@ renderBookComp=(bookNames)=>{
 						     bookTitle={BookObj.title}
 						     bookCover={BookObj.imageLinks.thumbnail}
 							 updateFunc={this.updateBooks}
-							 BookId={BookObj.id} 
+							 id={BookObj.id}
 						/>);
   });
    return bookNamesArr;
