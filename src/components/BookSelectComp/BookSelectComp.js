@@ -5,12 +5,16 @@ class BookSelectComp extends Component{
   state={
     value: "move"
   };
+/* 
+	select change => Its basically an OnChange method that gets called when user selects a field in the dropdown. 
+*/ 
   selectChange = (e)=>{
     const {bookupdateFunc,BookId}=this.props;
        let BookObj={
          id: BookId
        };
        const selectValue = e.target.value;
+       // bookupdateFunc => This function is to update the book .
        bookupdateFunc(BookObj,selectValue);
        this.updatestate(selectValue);
     };

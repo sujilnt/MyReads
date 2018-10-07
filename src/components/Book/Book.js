@@ -1,7 +1,10 @@
 import React from "react";
 import BookSelectComp from "../BookSelectComp/BookSelectComp.js";
 import PropTypes from "prop-types";
-
+/*
+ BookComponent -> A stateless component that is used for displaying Book .
+ BookSelectComp -> A controlled select component that is used to decide whether the Book should go like in  ([Read Self  or  Currently Reading shelf]) based on user input .
+*/
 const Book=(props)=>{
     const {updateFunc,bookCover,id,bookTitle,bookAuthor}=props;
     return(

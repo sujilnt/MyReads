@@ -1,7 +1,10 @@
 import React from "react";
 import Book from "../Book/Book";
 import PropTypes from "prop-types";
-
+/*
+BookShelf component -> A component that contains list of Books Component
+renderBookshelfContents => A function returns a collections of Book Component.
+*/
 const renderBookshelfContents = (bookNames,updateFunc)=>{
     let renderItems=[];
     bookNames.forEach((row)=>{

@@ -3,6 +3,9 @@ import BookShelf from "../BookShelf/BookShelf.js";
 import PropTypes from 'prop-types';
 
 class MyRead extends Component{
+  /*
+   MyRead consist of Collection of BookShelf compnents
+  */
   state={
     loading : true,
     bookNames: " ",
@@ -10,6 +13,9 @@ class MyRead extends Component{
   componentDidMount=()=>{
    		this.loadBooks()
  	};
+ /*
+ loadBooks function => its loads the data from the BookApi
+ */
   loadBooks=()=>{
      let {getAll}=this.props.bookApi;
   		getAll().then((bookNames)=>{
@@ -19,6 +25,9 @@ class MyRead extends Component{
      		}));
   		});
    };
+/*
+ 	updateBooks function => The function that is used to update books based on BooksApi.
+ */
    updateBooks=(bookidObj,shelf)=>{
       let {update}=this.props.bookApi;
      update(bookidObj,shelf).then((data)=>{
@@ -26,7 +35,10 @@ class MyRead extends Component{
         this.loadBooks();
      });
    };
- 
+ /*
+ 	shelfData function => The function that is used to filter books based on selfnames.
+    Ex: shelfData("read") 
+ */
  shelfData=(shelfName)=>{
    let  filteredBookdata = this.state.bookNames;
     filteredBookdata=filteredBookdata.filter((row)=>{

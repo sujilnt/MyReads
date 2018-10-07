@@ -10,6 +10,12 @@ const BooksApp =()=> {
       <div className="app">
           	 <Route exact path="/" render={()=>(
     			<div>
+      				{/*
+                       2 Main Components of the App :-
+                       MyRead - 1st page of the app , that contains book Shelfs.
+                       Searchbar - 2nd page of the App, that contains search box. 
+                       All the componets are placed in components folder.
+                    */}
     				<MyRead
                         bookApi={BooksAPI}
                     />
