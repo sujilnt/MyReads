@@ -1,4 +1,6 @@
 import React,{Component} from "react";
+import PropTypes from "prop-types";
+
 class BookSelectComp extends Component{
   state={
     value: "move"
@@ -32,4 +34,8 @@ class BookSelectComp extends Component{
    }
 	
 }
+BookSelectComp.PropTypes={
+    BookId: PropTypes.string.isRequired,
+    bookupdateFunc: PropTypes.func.isRequired,
+};
 export default BookSelectComp;

@@ -1,5 +1,7 @@
 import React from "react";
 import BookSelectComp from "../BookSelectComp/BookSelectComp.js";
+import PropTypes from "prop-types";
+
 const Book=(props)=>{
     const {updateFunc,bookCover,id,bookTitle,bookAuthor}=props;
     return(
@@ -17,4 +19,11 @@ const Book=(props)=>{
  );
 };
 
+Book.PropTypes={
+    id: PropTypes.string.isRequired,
+    bookAuthor: PropTypes.string.isRequired,
+    bookTitle: PropTypes.string.isRequired,
+    updateFunc: PropTypes.func.isRequired,
+    bookCover:PropTypes.any
+};
 export default Book;

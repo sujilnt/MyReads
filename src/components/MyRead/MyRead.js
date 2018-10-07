@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import BookShelf from "../BookShelf/BookShelf.js";
+import PropTypes from 'prop-types';
 
 class MyRead extends Component{
   state={
@@ -66,4 +67,7 @@ class MyRead extends Component{
     )
  }
 }
+MyRead.PropTypes={
+    bookApi: PropTypes.func.isRequired
+};
 export default MyRead;

@@ -1,6 +1,8 @@
 import React,{Component} from "react";
 import {Link} from "react-router-dom";
 import Book from "../Book/Book.js";
+import PropTypes from 'prop-types';
+
 class SearchBar extends Component{
  	state={
     	loading:true,
@@ -12,7 +14,6 @@ class SearchBar extends Component{
      update(bookidObj,shelf).then((contacts)=>{
       console.log("c=>",contacts);
      });
-     
    };
 
  	seachData=(e)=>{
@@ -45,7 +46,6 @@ renderBookComp=(bookNames)=>{
   return bookNamesArr;
 };
 
-
 renderSearchData=()=>{
   return(<div>Enter the Keywords based on SearchItems.md..</div>);
 };
@@ -73,4 +73,7 @@ renderSearchData=()=>{
  		);
    }
 }
+SearchBar.PropTypes={
+    bookApi: PropTypes.func.isRequired
+};
 export default SearchBar;

@@ -1,5 +1,6 @@
 import React from "react";
 import Book from "../Book/Book";
+import PropTypes from "prop-types";
 
 const renderBookshelfContents = (bookNames,updateFunc)=>{
     let renderItems=[];
@@ -33,5 +34,11 @@ const BookShelf = (props)=>{
 
    );
 
+};
+
+BookShelf.PropTypes={
+    selfName: PropTypes.string.isRequired,
+    booksNameObj: PropTypes.func.isRequired,
+    updateFunc: PropTypes.func.isRequired
 };
 export default BookShelf;
