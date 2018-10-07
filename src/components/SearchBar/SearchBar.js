@@ -13,8 +13,8 @@ class SearchBar extends Component{
         query: {}
   	};
  /*
- 	updateBooks => A function that is used update the books to their 
- 	respective shelves.
+     updateBooks => A function that is used update the books to their 
+     respective shelves.
  */
    updateBooks=(bookidObj,shelf)=>{
       let {update}=this.props.bookApi;
@@ -55,7 +55,7 @@ renderBookComp=(bookNames)=>{
   return bookNamesArr;
 };
 /*
-	renderSearchData => if the Api results is empty then this function called 
+    renderSearchData => if the Api results is empty then this function called 
     and it returns div . 
 */
 renderSearchData=()=>{
