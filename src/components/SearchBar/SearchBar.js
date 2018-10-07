@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import Book from "../Book/Book.js";
 import PropTypes from 'prop-types';
 /*
-	searchComponent -> This component is basically an inpput search when an user adds a 
+    searchComponent -> This component is basically an inpput search when an user adds a 
     keywords based on seach terms query is happens through Search() from the BookApi.  
 */
 class SearchBar extends Component{
