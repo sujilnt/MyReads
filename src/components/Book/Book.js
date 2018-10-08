@@ -8,10 +8,11 @@ import PropTypes from "prop-types";
 */
 const Book=(props)=>{
     const {updateFunc,bookCover,id,bookTitle,bookAuthor}=props;
+    let coverPic = bookCover === undefined ?  "../../icons/no_cover.jpg" : bookCover.thumbnail ;
     return(
         <div className="book">
              <div className="book-top">
-                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url( ${bookCover} )`}}></div>
+                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url( ${coverPic} )`}}></div>
                     <BookSelectComp
 					    bookupdateFunc={updateFunc}
 					    BookId={id}

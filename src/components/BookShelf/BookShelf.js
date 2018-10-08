@@ -14,7 +14,7 @@ const renderBookshelfContents = (bookNames,updateFunc)=>{
                 <Book
                     bookAuthor={authors}
                     bookTitle={row.title}
-                    bookCover={row.imageLinks.thumbnail}
+                    bookCover={row.imageLinks}
                     updateFunc={updateFunc}
                     id={row.id}
                 />

@@ -47,7 +47,7 @@ renderBookComp=(bookNames)=>{
                      		 key={index}
                              bookAuthor={authors}
 						     bookTitle={BookObj.title}
-						     bookCover={BookObj.imageLinks.thumbnail}
+						     bookCover={BookObj.imageLinks}
 							 updateFunc={this.updateBooks}
 							 id={BookObj.id}
 						/>);
