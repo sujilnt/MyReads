@@ -61,20 +61,20 @@ class MyRead extends Component{
       					selfName="Currently Reading"
       					booksNameObj={this.shelfData("currentlyReading")}
 						updateFunc={this.updateBooks}
-						bookState={"currentlyReading"}
+						
 						
       			/>
    				<BookShelf 
       					selfName="Want To Read"
       					booksNameObj={this.shelfData("wantToRead")}
 						updateFunc={this.updateBooks}
-						bookState={"wantToRead"}
+						
       			/>
 				<BookShelf 
       					selfName="Read"
       					booksNameObj={this.shelfData("read")}
 						updateFunc={this.updateBooks}
-						bookState={"read"}
+						
       			/>
             </div>): ""
  			}

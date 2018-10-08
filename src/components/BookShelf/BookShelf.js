@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 BookShelf component -> A component that contains list of Books Component
 renderBookshelfContents => A function returns a collections of Book Component.
 */
-const renderBookshelfContents = (bookNames,updateFunc,bookstate)=>{
+const renderBookshelfContents = (bookNames,updateFunc)=>{
     let renderItems=[];
     bookNames.forEach((row)=>{
         let authors=row.authors ? row.authors.join(','):["Unknown"];
@@ -17,7 +17,7 @@ const renderBookshelfContents = (bookNames,updateFunc,bookstate)=>{
                     bookCover={row.imageLinks}
                     updateFunc={updateFunc}
                     id={row.id}
-					bookState={bookstate}
+					bookState={row.shelf}
                 />
             </li>
         );
@@ -25,13 +25,13 @@ const renderBookshelfContents = (bookNames,updateFunc,bookstate)=>{
     return renderItems;
 };
 const BookShelf = (props)=>{
-    const {booksNameObj,updateFunc,bookState}=props;
+    const {booksNameObj,updateFunc}=props;
    return(
        <div className="bookshelf">
            <h2 className="bookshelf-title">{props.selfName}</h2>
            <div className="bookshelf-books">
                <ol className="books-grid">
-                   {renderBookshelfContents(booksNameObj,updateFunc,bookState)}
+                   {renderBookshelfContents(booksNameObj,updateFunc)}
                </ol>
            </div>
        </div>

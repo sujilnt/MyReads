@@ -29,6 +29,9 @@ class SearchBar extends Component{
         const searchValue=e.target.value || " ";
         e.preventDefault();
         search(searchValue).then((query)=>{
+          console.log("before",query.shelf);
+          query.shelf=query.shelf ? query.shelf : (query.shelf="none");
+          console.log(query,query.shelf);
             this.setState(()=>({
                  loading:false,
                 searchVal: searchValue,
@@ -43,6 +46,7 @@ renderBookComp=(bookNames)=>{
   Object.keys(bookNames).forEach((name,index)=>{
     const BookObj=bookNames[name];
     const authors=BookObj.authors ? BookObj.authors.join(','):["Unknown"] ;
+   // console.log("checkkkkkk",BookObj)
     bookNamesArr.push(<Book 
                      		 key={index}
                              bookAuthor={authors}
@@ -50,7 +54,7 @@ renderBookComp=(bookNames)=>{
 						     bookCover={BookObj.imageLinks}
 							 updateFunc={this.updateBooks}
 							 id={BookObj.id}
-							bookState={"none"}
+							bookState={BookObj.shelf}
 						/>);
   });
   return bookNamesArr;
