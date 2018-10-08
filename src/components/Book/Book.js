@@ -8,7 +8,7 @@ import bookNo_cover from "../../icons/bookNo.jpg";
  ([Read Self  or  Currently Reading shelf]) based on user input .
 */
 const Book=(props)=>{
-    const {updateFunc,bookCover,id,bookTitle,bookAuthor}=props;
+    const {updateFunc,bookCover,id,bookTitle,bookAuthor,bookState}=props;
     let coverPic = bookCover === undefined ?  bookNo_cover : bookCover.thumbnail ;
     return(
         <div className="book">
@@ -17,6 +17,7 @@ const Book=(props)=>{
                     <BookSelectComp
 					    bookupdateFunc={updateFunc}
 					    BookId={id}
+						bookState={bookState}
                     />
                 </div>
              <div className="book-title">{bookTitle}</div>

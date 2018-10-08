@@ -50,6 +50,7 @@ renderBookComp=(bookNames)=>{
 						     bookCover={BookObj.imageLinks}
 							 updateFunc={this.updateBooks}
 							 id={BookObj.id}
+							bookState={"none"}
 						/>);
   });
   return bookNamesArr;
