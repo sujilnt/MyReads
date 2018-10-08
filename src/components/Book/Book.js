@@ -1,6 +1,7 @@
 import React from "react";
 import BookSelectComp from "../BookSelectComp/BookSelectComp.js";
 import PropTypes from "prop-types";
+import bookNo_cover from "../../icons/bookNo.jpg";
 /*
  BookComponent -> A stateless component that is used for displaying Book .
  BookSelectComp -> A controlled select component that is used to decide whether the Book should go like in  
@@ -8,7 +9,7 @@ import PropTypes from "prop-types";
 */
 const Book=(props)=>{
     const {updateFunc,bookCover,id,bookTitle,bookAuthor}=props;
-    let coverPic = bookCover === undefined ?  "../../icons/no_cover.jpg" : bookCover.thumbnail ;
+    let coverPic = bookCover === undefined ?  bookNo_cover : bookCover.thumbnail ;
     return(
         <div className="book">
              <div className="book-top">
