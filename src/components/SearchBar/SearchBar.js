@@ -16,10 +16,10 @@ class SearchBar extends Component{
          const bookdata=this.props.bookData;
          if(searchQuery.length !== undefined){
              searchQuery.map((row)=>{
-                 bookdata.forEach((searchrow)=>{
-                         row.id===searchrow.id ? row.shelf=searchrow.shelf : row.shelf="none" ;
-                         console.log(row.id===searchrow.id);
-                 });
+               const matchingObj=bookdata.filter((searchrow)=>{
+                   return row.id === searchrow.id;
+               });
+                 row.shelf = matchingObj.length? matchingObj[0].shelf: "none";
              return row;
              });
          }
