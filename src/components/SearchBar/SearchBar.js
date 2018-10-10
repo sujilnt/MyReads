@@ -12,21 +12,31 @@ class SearchBar extends Component{
         searchVal:" ",
         query: {}
     };
+     addShelf=(shelfList,searchQuery,searchValue)=>{
+         const bookdata=this.props.bookData;
+         if(searchQuery.length !== undefined){
+             searchQuery.map((row)=>{
+                 bookdata.forEach((searchrow)=>{
+                         row.id===searchrow.id ? row.shelf=searchrow.shelf : row.shelf="none" ;
+                         console.log(row.id===searchrow.id);
+                 });
+             return row;
+             });
+         }
+         this.setState(()=>({
+             loading:false,
+             searchVal: searchValue,
+             query:searchQuery
+         }));
 
+    };
 //seachData => A function that is retrives the data based on search query .
     seachData=(e)=>{
-        const {search} =this.props.bookApi;
+        const {updatedList,bookApi}=this.props;
         const searchValue=e.target.value || " ";
         e.preventDefault();
-        search(searchValue).then((query)=>{
-            console.log("before",query.shelf);
-            query.shelf=query.shelf ? query.shelf : (query.shelf="none");
-            console.log(query,query.shelf);
-            this.setState(()=>({
-                loading:false,
-                searchVal: searchValue,
-                query
-            }));
+        bookApi.search(searchValue).then((query)=>{
+            this.addShelf(updatedList,query,searchValue);
         });
     };
 
@@ -36,7 +46,6 @@ class SearchBar extends Component{
         Object.keys(bookNames).forEach((name,index)=>{
             const BookObj=bookNames[name];
             const authors=BookObj.authors ? BookObj.authors.join(','):["Unknown"] ;
-            // console.log("checkkkkkk",BookObj)
             bookNamesArr.push(<Book
                 key={index}
                 bookAuthor={authors}
@@ -59,9 +68,7 @@ class SearchBar extends Component{
 
     render(){
         const {updateFunc}=this.props;
-        console.log(this.props);
         const {query}=this.state;
-        console.log(updateFunc);
         return(
             <div className="search-books">
                 <div className="search-books-bar">

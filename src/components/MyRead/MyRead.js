@@ -8,10 +8,12 @@ class MyRead extends Component{
     /*
      MyRead Component -> It consist of Collection of BookShelf compnents.
      Here there are 3 BookShelf Compoenents
+     All BookAPi function  is passed to child components  as props .
     */
     state={
         loading : true,
         bookNames: " ",
+        updatedList: ""
     };
     componentDidMount=()=>{
         this.loadBooks()
@@ -34,6 +36,10 @@ class MyRead extends Component{
     updateBooks=(bookidObj,shelf)=>{
         let {update}=this.props.bookApi;
         update(bookidObj,shelf).then((data)=>{
+            this.setState(()=>({
+                updatedList: data
+            }));
+            //console.log(data);
             this.loadBooks();
         });
     };
@@ -44,7 +50,7 @@ class MyRead extends Component{
     shelfData=(shelfName)=>{
         let  filteredBookdata = this.state.bookNames;
         filteredBookdata=filteredBookdata.filter((row)=>{
-            console.log(row.shelf===shelfName,row.shelf)
+           // console.log(row.shelf===shelfName,row.shelf)
             return row.shelf===shelfName;
         });
         return filteredBookdata;
@@ -91,7 +97,8 @@ class MyRead extends Component{
                     <SearchBar
                         updateFunc={this.updateBooks}
                         bookApi={this.props.bookApi}
-
+                        updatedList={this.state.updatedList}
+                        bookData={this.state.bookNames}
                     />)} />
             </div>
         )
