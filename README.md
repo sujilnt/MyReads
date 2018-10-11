@@ -26,7 +26,7 @@ The user can navigate to the book details by clicking on the cover of a book. Th
 ### Search
 The search view consists of an input field. When the user changes the value of the input field, a search request is sent to the backend. The search results are displayed in the area below the input field. Books can be added to shelves, moved between shelves or removed from their current shelf. 
 
-Note: The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in` [SEARCH_TERMS.md](SEARCH_TERMS.md)`. That list of terms are the _only_ terms that will work with the backend, so don't be surprised if searches for Basket Weaving or Bubble Wrap don't come back with any results. 
+Note: The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md]`(SEARCH_TERMS.md)`. That list of terms are the _only_ terms that will work with the backend, so don't be surprised if searches for Basket Weaving or Bubble Wrap don't come back with any results. 
 
 ### Details
 The details view shows detailed information of a book. In addition to the title, the cover and the authors, which are available in the home and search view too, the user gets access to a description, a list of categories, the book's publication date and he can follow a link to google where he can either preview or buy the book.
