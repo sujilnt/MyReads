@@ -21,7 +21,7 @@ class SearchBar extends Component{
                    return row.id === searchrow.id;
                });
                  row.shelf = matchingObj.length? matchingObj[0].shelf: "none";
-                 //console.log(row.title,row.shelf);
+                 console.log(row.title,row.shelf);
              return row;
              });
          }
