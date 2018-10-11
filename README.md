@@ -1,18 +1,15 @@
 # MyReads
-This is my solution  for the final assessment project for Udacity's React Fundamentals course, developed by [React Training](https://reacttraining.com). I started with the provided starter package and then added my own commits and moved to my own repository.
+This is my solution  for the final assessment project for Udacity's React Fundamentals course, developed by [React Training](https://reacttraining.com).I started with started code provided by Udacity .
 
-The task was to build an application to manage books. Books are provided by a backend server which was put up by the guys from udacity/react training. To sum things up, the user can move books between a fixed set of bookshelves. He can also add new books to his collection or remove previously added books.  
+The task was to build an application to manage books.The books are managed in different shelfs, Books are provided by a backend server which was put up by the guys from udacity/react training. To sum things up, the user can move books between a fixed set of bookshelves. He can also add new books to his collection or remove previously added books.  
 
 ## Getting Started
-To start the application, npm and nodejs need to be present on your machine. Check out https://www.npmjs.com/ and https://nodejs.org to get the latest versions of the two. 
 
-Only two very small steps are required to start the application when npm and node are installed. Make sure you install all required libraries by running the following command in the root folder of this repository.
-
-npm install
+`npm install`
 
 When everything is downloaded and installed, stay in the same directory run the following command to get the application running.
 
-npm start
+`npm start`
 
 That's it! You can now access the web application in your web browser via this url:
 
@@ -22,14 +19,14 @@ http://localhost:3000
 The app consists of three pages, which the user can access.
 
 ### Home
-The home view displays three bookshelves: currently reading, want to read and read. Each shelf holds multiple books. The books can be moved between from one shelf to another or just removed from the current shelf.
+The home view displays three bookshelves: `currently reading`, `want to read` and `read`. Each shelf holds multiple books. The books can be moved between from one shelf to another.
 
 The user can navigate to the book details by clicking on the cover of a book. The user can also navigate to the book search.
 
 ### Search
 The search view consists of an input field. When the user changes the value of the input field, a search request is sent to the backend. The search results are displayed in the area below the input field. Books can be added to shelves, moved between shelves or removed from their current shelf. 
 
-Note: The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if searches for Basket Weaving or Bubble Wrap don't come back with any results. 
+Note: The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md]`(SEARCH_TERMS.md)`. That list of terms are the _only_ terms that will work with the backend, so don't be surprised if searches for Basket Weaving or Bubble Wrap don't come back with any results. 
 
 ### Details
 The details view shows detailed information of a book. In addition to the title, the cover and the authors, which are available in the home and search view too, the user gets access to a description, a list of categories, the book's publication date and he can follow a link to google where he can either preview or buy the book.
@@ -72,3 +69,6 @@ for you to use with your app.
 # create-react-app
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). More information on how to perform common tasks can be found [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
+## Concepts Learned by doing this project 
+`React Router, function way of writing js using Es6, Lifecycle Methods , State Management `
