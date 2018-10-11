@@ -13,20 +13,22 @@ class SearchBar extends Component{
         query: {}
     };
      addShelf=(shelfList,searchQuery,searchValue)=>{
+         let sortedQuery=[];
          const bookdata=this.props.bookData;
          if(searchQuery.length !== undefined){
-             searchQuery.map((row)=>{
+             sortedQuery= searchQuery.map((row)=>{
                const matchingObj=bookdata.filter((searchrow)=>{
                    return row.id === searchrow.id;
                });
                  row.shelf = matchingObj.length? matchingObj[0].shelf: "none";
+                 //console.log(row.title,row.shelf);
              return row;
              });
          }
          this.setState(()=>({
              loading:false,
              searchVal: searchValue,
-             query:searchQuery
+             query: sortedQuery
          }));
 
     };
