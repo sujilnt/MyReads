@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import BookShelf from "../BookShelf/BookShelf.js";
 import PropTypes from 'prop-types';
-import {Link,Route} from "react-router-dom";
+import {BrowserRouter,Link,Route} from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 
 class MyRead extends Component{
@@ -59,6 +59,8 @@ class MyRead extends Component{
 
         return(
             <div className="app">
+                <BrowserRouter>
+                    <div>
                 <Route exact path="/" render={()=>(
                     <div>
                         <div className="list-books">
@@ -100,6 +102,8 @@ class MyRead extends Component{
                         updatedList={this.state.updatedList}
                         bookData={this.state.bookNames}
                     />)} />
+                 </div>
+                </BrowserRouter>
             </div>
         )
     }
