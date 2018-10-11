@@ -32,7 +32,7 @@ Note: The backend API uses a fixed set of cached search results and is limited t
 The details view shows detailed information of a book. In addition to the title, the cover and the authors, which are available in the home and search view too, the user gets access to a description, a list of categories, the book's publication date and he can follow a link to google where he can either preview or buy the book.
 
 ## `Demo Execution of the app`
-![alt text](./screenshot/screenshot.gif);
+![alt text](./screenshot/screenshot.gif)
 
 ## `Code`
 ```
