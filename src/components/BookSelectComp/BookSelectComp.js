@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 class BookSelectComp extends Component{
   state={
-    value: this.props.bookState
+    value: "none"
   };
 /* 
     select change => Its basically an OnChange method that gets called when user selects a field in the dropdown. 
@@ -19,17 +19,17 @@ class BookSelectComp extends Component{
        this.updatestate(selectValue);
     };
     updatestate=(selectValue)=>{
-     this.setState(()=>({
+     this.setState({
         value: selectValue
-       }));
+       });
    };
-selectedfunc=(inputvalue)=>{
- return this.state.value==="value"? true : false;
-}
+
    render(){
+        const {value} = this.state;
+        const {BookId,bookState} = this.props;
    		return(
 		<div className="book-shelf-changer">
-               <select value={this.state.value} onChange={this.selectChange}>
+               <select ref={BookId} value={bookState!=="none"? bookState : value } onChange={this.selectChange}>
                  <option value="move" disabled>Move to...</option>
                  <option value="currentlyReading" >Currently Reading</option>
                   <option value="wantToRead">Want to Read</option>
