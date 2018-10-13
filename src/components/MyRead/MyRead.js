@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import BookShelf from "../BookShelf/BookShelf.js";
 import PropTypes from 'prop-types';
-import {BrowserRouter,Link,Route} from "react-router-dom";
+import {HashRouter,Switch,Link,Route} from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 
 class MyRead extends Component{
@@ -59,51 +59,51 @@ class MyRead extends Component{
 
         return(
             <div className="app">
-                <BrowserRouter>
-                    <div>
-                <Route exact path="/" render={()=>(
-                    <div>
-                        <div className="list-books">
-                            <div className="list-books-title">
-                                <h1>MyReads</h1>
+                <HashRouter>
+                    <Switch>
+                        <Route exact path="/" render={()=>(
+                            <div>
+                                <div className="list-books">
+                                    <div className="list-books-title">
+                                        <h1>MyReads</h1>
+                                    </div>
+                                    {
+                                        !this.state.loading ?
+                                            (<div className="list-books-content">
+                                                <BookShelf
+                                                    selfName="Currently Reading"
+                                                    booksNameObj={this.shelfData("currentlyReading")}
+                                                    updateFunc={this.updateBooks}
+                                                />
+                                                <BookShelf
+                                                    selfName="Want To Read"
+                                                    booksNameObj={this.shelfData("wantToRead")}
+                                                    updateFunc={this.updateBooks}
+
+                                                />
+                                                <BookShelf
+                                                    selfName="Read"
+                                                    booksNameObj={this.shelfData("read")}
+                                                    updateFunc={this.updateBooks}
+
+                                                />
+                                            </div>): ""
+                                    }
+                                </div>
+                                <div className="open-search">
+                                    <Link to='/search'>Add a book</Link>
+                                </div>
                             </div>
-                            {
-                                !this.state.loading ?
-                                    (<div className="list-books-content">
-                                        <BookShelf
-                                            selfName="Currently Reading"
-                                            booksNameObj={this.shelfData("currentlyReading")}
-                                            updateFunc={this.updateBooks}
-                                        />
-                                        <BookShelf
-                                            selfName="Want To Read"
-                                            booksNameObj={this.shelfData("wantToRead")}
-                                            updateFunc={this.updateBooks}
-
-                                        />
-                                        <BookShelf
-                                            selfName="Read"
-                                            booksNameObj={this.shelfData("read")}
-                                            updateFunc={this.updateBooks}
-
-                                        />
-                                    </div>): ""
-                            }
-                        </div>
-                        <div className="open-search">
-                            <Link to='/search'>Add a book</Link>
-                        </div>
-                    </div>
-                )} />
-                <Route exact path="/search" render={()=>(
-                    <SearchBar
-                        updateFunc={this.updateBooks}
-                        bookApi={this.props.bookApi}
-                        updatedList={this.state.updatedList}
-                        bookData={this.state.bookNames}
-                    />)} />
-                 </div>
-                </BrowserRouter>
+                        )} />
+                        <Route exact path="/search" render={()=>(
+                            <SearchBar
+                                updateFunc={this.updateBooks}
+                                bookApi={this.props.bookApi}
+                                updatedList={this.state.updatedList}
+                                bookData={this.state.bookNames}
+                            />)} />
+                    </Switch>
+                </HashRouter>
             </div>
         )
     }
